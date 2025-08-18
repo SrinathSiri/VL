@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Parameterization]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Parameter(failed)">
+    <parameter name="Browser" value="EDGE"/>
+    <classes>
+      <class name="TestNGPractice.ParameterClass">
+        <methods>
+          <include name="loginin"/>
+          <include name="browserClose"/>
+          <include name="browserLaunch"/>
+          <include name="removeCart"/>
+          <include name="addCart"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- TestNGPractice.ParameterClass -->
+    </classes>
+  </test> <!-- Parameter(failed) -->
+</suite> <!-- Failed suite [Parameterization] -->

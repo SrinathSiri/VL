@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 public class Test1 {
     @BeforeTest
     public void browserLaunch(){
+        //chrome browser launching
         System.out.println("ChromeBrowser Launched");
     }
 

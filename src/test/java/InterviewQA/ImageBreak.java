@@ -26,20 +26,28 @@ public class ImageBreak {
         WebDriver driver = new ChromeDriver();
         driver.get("https://practice.expandtesting.com/broken-images");
         List<WebElement> images = driver.findElements(By.tagName("img"));
-        for (WebElement image : images) {
-            String srcaddress = image.getAttribute("src");
-            URL url = new URL(srcaddress);
-            URLConnection urlconnection = url.openConnection();
-            HttpsURLConnection httpsURLConnection = (HttpsURLConnection) urlconnection;
-            httpsURLConnection.setConnectTimeout(5000);
-            httpsURLConnection.connect();
 
-            if (httpsURLConnection.getResponseCode() == 200) {
-                System.out.println(srcaddress + " >> " + httpsURLConnection.getResponseCode() + " " + httpsURLConnection.getResponseMessage());
-            } else {
-                System.err.println(srcaddress + " >> " + httpsURLConnection.getResponseCode() + " " + httpsURLConnection.getResponseMessage());
+        String srcaddress = null;
+        try {
+            for (WebElement image : images) {
+                srcaddress = image.getAttribute("src");
+                URL url = new URL(srcaddress);
+                URLConnection urlconnection = url.openConnection();
+                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) urlconnection;
+                httpsURLConnection.setConnectTimeout(5000);
+                httpsURLConnection.connect();
+
+                if (httpsURLConnection.getResponseCode() == 200) {
+                    System.out.println(srcaddress + " >> " + httpsURLConnection.getResponseCode() + " " + httpsURLConnection.getResponseMessage());
+                } else {
+                    System.err.println(srcaddress + " >> " + httpsURLConnection.getResponseCode() + " " + httpsURLConnection.getResponseMessage());
+                }
             }
+
+        } catch (Exception e) {
+            System.err.println("Error checking image: " + srcaddress + " >> " + e.getMessage());
         }
+
 
     }
 

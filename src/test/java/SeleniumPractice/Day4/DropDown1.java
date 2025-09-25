@@ -7,16 +7,19 @@ import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 public class DropDown1 {
-    public static void main(String[] args) throws Exception{
+
+   @Test
+    public void dropDown1() throws Exception{
        WebDriverManager.chromedriver().setup();
        WebDriver driver = new ChromeDriver();
        driver.manage().window().maximize();
-       driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
-       driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
+       driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(2));
+       driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(2));
        driver.get("https://leafground.com/select.xhtml;jsessionid=node01xktteuu7cqid1wssoak0ulbbw3441308.node0");
        WebElement selectdpdn = driver.findElement(By.xpath("//select[@class='ui-selectonemenu']"));
        Select select = new Select(selectdpdn);
@@ -33,6 +36,6 @@ public class DropDown1 {
        Select select2 = new Select(selcars);
        select2.selectByValue("audi");
        Thread.sleep(2000);
-       driver.close();
+       driver.quit();
     }
 }

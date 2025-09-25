@@ -6,18 +6,18 @@ import org.testng.annotations.Test;
 
 public class Test1 {
     @BeforeTest
-    public void browserLaunch(){
+    public void browserLaunch() {
         //chrome browser launching
         System.out.println("ChromeBrowser Launched");
     }
 
     @Test
-    public void googleTile(){
+    public void googleTile() {
         System.out.println("Google tile captured");
     }
 
     @AfterTest
-    public void browserClose(){
+    public void browserClose() {
         System.out.println("ChromeBrowser Closed");
     }
 }

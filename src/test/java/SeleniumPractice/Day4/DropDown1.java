@@ -32,7 +32,7 @@ public class DropDown1 {
        WebElement selcars = driver.findElement(By.xpath("//select[@id='cars']"));
        Select select2 = new Select(selcars);
        select2.selectByValue("audi");
-
-
+       Thread.sleep(2000);
+       driver.close();
     }
 }

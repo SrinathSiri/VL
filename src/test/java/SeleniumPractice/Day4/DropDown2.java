@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 
 public class DropDown2 {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();
@@ -26,4 +26,7 @@ public class DropDown2 {
         WebElement selcars = driver.findElement(By.xpath("//select[@id='cars']"));
         Select select2 = new Select(selcars);
         select2.selectByValue("audi");
-}}
+        Thread.sleep(2000);
+        driver.close();
+    }
+}

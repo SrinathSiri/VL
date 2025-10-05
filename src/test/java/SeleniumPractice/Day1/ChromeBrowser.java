@@ -12,6 +12,7 @@ public class ChromeBrowser {
         driver.manage().window().maximize();
         Thread.sleep(2000);
         driver.get("https://www.eenadu.net/");
+        Thread.sleep(2000);
         driver.close();
     }
 }

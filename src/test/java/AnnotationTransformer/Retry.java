@@ -1,9 +1,9 @@
-package IRetryAnalyzer;
+package AnnotationTransformer;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
-public class RetryClass implements IRetryAnalyzer {
+public class Retry implements IRetryAnalyzer {
 
     private int initialcount = 0;
     private static final int retrycount= 5;

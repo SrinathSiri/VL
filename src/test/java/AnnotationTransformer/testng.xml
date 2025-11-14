@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Transformer Suite">
+    <listeners>
+        <listener class-name="AnnotationTransformer.AnnotationTransformer"/>
+    </listeners>
+    <test name="Transformer Test">
+        <classes>
+            <class name="AnnotationTransformer.TestClass"/>
+        </classes>
+    </test>
+</suite>

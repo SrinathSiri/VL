@@ -1,4 +1,4 @@
-package ScreenshotListener;
+package ScreenshotListener.IListenerTest;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -25,6 +25,11 @@ public class ScreenshotListener implements ITestListener {
         if (driver instanceof TakesScreenshot) {
             File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
+
+/*            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss");
+            Date now = new Date();
+            String timestamp = sdf.format(now);         */
+
             String screenshotName = "failure_" + result.getName() + "_" + timestamp + ".png";
             Path destination = Paths.get("screenshots", screenshotName);
             try {

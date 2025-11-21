@@ -1,4 +1,4 @@
-package ScreenshotListener;
+package ScreenshotListener.IListenerTest;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;

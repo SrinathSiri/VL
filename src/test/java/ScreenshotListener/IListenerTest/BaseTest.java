@@ -1,4 +1,4 @@
-package ScreenshotListener;
+package ScreenshotListener.IListenerTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

@@ -16,6 +16,8 @@ import java.util.List;
 
 public class ImageBreak {
 
+    // HYR Tutorials - How to Check Broken Images in Selenium WebDriver -> https://www.youtube.com/watch?v=6NXZQYs-Eig&t=752s
+
     public static void main(String[] args) throws Exception {
         brokenImageCheck();
     }

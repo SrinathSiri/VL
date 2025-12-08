@@ -12,6 +12,7 @@ import javax.net.ssl.HttpsURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.Duration;
 import java.util.List;
 
 public class ImageBreak {
@@ -26,7 +27,9 @@ public class ImageBreak {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(5));
         driver.get("https://practice.expandtesting.com/broken-images");
+        //driver.get("https://the-internet.herokuapp.com/broken_images");
         List<WebElement> images = driver.findElements(By.tagName("img"));
 
         String srcaddress = null;
@@ -35,7 +38,7 @@ public class ImageBreak {
                 srcaddress = image.getAttribute("src");
                 URL url = new URL(srcaddress);
                 URLConnection urlconnection = url.openConnection();
-                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) urlconnection;
+                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) urlconnection; //HttpsURLConnection is an abstract class
                 httpsURLConnection.setConnectTimeout(5000);
                 httpsURLConnection.connect();
 
@@ -44,12 +47,14 @@ public class ImageBreak {
                 } else {
                     System.err.println(srcaddress + " >> " + httpsURLConnection.getResponseCode() + " " + httpsURLConnection.getResponseMessage());
                 }
+                httpsURLConnection.disconnect();
             }
 
         } catch (Exception e) {
             System.err.println("Error checking image: " + srcaddress + " >> " + e.getMessage());
         }
-
+                Thread.sleep(3000);
+                driver.close();
 
     }
 

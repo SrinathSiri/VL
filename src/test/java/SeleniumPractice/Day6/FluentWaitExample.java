@@ -25,10 +25,12 @@ public class FluentWaitExample {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
-                .ignoring(ElementClickInterceptedException.class);
-        wait.until(WebDriver->{
+                .ignoring(ElementClickInterceptedException.class)
+                .ignoring(NoAlertPresentException.class);
+
+        wait.until(WebDriver -> {
             String title = driver.getTitle();
-           return title.contains("Shutterfly");
+            return title.contains("Shutterfly");
         });
 
 
@@ -38,9 +40,8 @@ public class FluentWaitExample {
                 .ignoring(NoAlertPresentException.class)
                 .ignoring(ElementClickInterceptedException.class);
 
-        wait1.until(WebDriver->{
-            String title = driver.getTitle();
-            return title.contains("Shutterfly");
+        wait1.until(WebDriver -> {
+            return driver.getTitle().contains("Shutterfly");
         });
 
     }

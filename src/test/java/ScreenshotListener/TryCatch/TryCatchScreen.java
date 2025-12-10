@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 public class TryCatchScreen {
 
@@ -32,6 +33,8 @@ public class TryCatchScreen {
             File dest = new File("C:\\Users\\v-srinath.sirimalla\\AutomationWorkspace\\VL\\src\\test\\java\\ScreenshotListener\\TryCatch\\screenshot1.png");
             FileHandler.copy(Input, dest);
             Thread.sleep(3000);
+
+            //does not throw an Exception — it actually throws an AssertionError, which is a subclass of Error, not Exception. so used throwable
 
         }
 

@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class BootStrap {
+    // findelements we use in bootstrap dropdown
     public static void main(String[] args) throws Exception{
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
